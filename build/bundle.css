@@ -39,6 +39,13 @@
 .commentBox {
   padding: 1em; }
 
+ul.comments {
+  padding: 0;
+  margin: 0; }
+
+.comment .card-block {
+  margin-left: 20px !important; }
+
 article.archive h1 {
   font-size: 2rem; }
 

@@ -20,7 +20,7 @@ class Article extends Component {
     getCategories = catIds => {
         if (typeof catIds !== 'undefined') {
             return catIds.map(cat_id => {
-                return RT_API['categories'].filter(cat => {
+                return RRT_API['categories'].filter(cat => {
                     return cat.term_id === cat_id;
                 })[0];
             });

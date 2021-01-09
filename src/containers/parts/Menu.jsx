@@ -3,11 +3,10 @@ import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchMenu } from '../../store/actions';
-// import { sprintf, __, isRTL } from "@wordpress/i18n";
 
 const { __, isRTL } = wp.i18n;
 
-console.log('here');
+console.log('here', wp.i18n);
 
 class Menu extends Component {
     componentDidMount = () => {

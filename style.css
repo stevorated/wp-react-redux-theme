@@ -1,11 +1,13 @@
 /*
-Theme Name: A WP React Redux Theme
-Author: Jack Reichert
-Author URI: https://www.jackreichert.com/
-Description: A ReactJS + Redux theme
-Version: 2.0
+Theme Name: React Redux Theme
+Author: Stevorated
+Author URI: https://github.com/stevorated/
+Description: ReactJS + Redux themeeeee
+Version: 1.0
 License: GPLv2
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: wpreactredux
+Text Domain: stevorated-rrt-theme
 */
 
+.stevorated-rrt-rtl {
+    direction: rtl;
+}

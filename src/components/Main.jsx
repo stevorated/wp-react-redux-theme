@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import Article from './main/Article';
-import Empty from './main/Empty';
-import Pagination from '../containers/parts/Pagination';
+import { Article, Empty } from './main.parts';
+import { Pagination } from '../containers';
 
 class Main extends Component {
     componentWillUpdate = () => {

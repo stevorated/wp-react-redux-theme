@@ -28,7 +28,7 @@ class Search extends Component {
     };
 
     componentDidUpdate() {
-        document.title = `Search Results - ${RT_API.siteName}`;
+        document.title = `Search Results - ${RRT_API.siteName}`;
     }
 
     render() {

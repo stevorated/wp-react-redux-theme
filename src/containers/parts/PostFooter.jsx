@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { fetchTaxInfo } from '../../store/actions';
 
-import Comments from '../comments/Comments';
+import { Comments } from '../comments';
 
 class PostFooter extends Component {
     componentWillMount = () => {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { fetchComments } from '../../store/actions';
 
-import Comment from '../../components/main/article.parts/Comment';
+import { Comment } from '../../components';
 import CommentForm from './CommentForm';
 
 class Comments extends Component {

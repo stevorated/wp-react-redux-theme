@@ -11,11 +11,11 @@ class Content extends Component {
         if (event.target.tagName === 'A') {
             let href = event.target.getAttribute('href');
             if (
-                (href.includes(RT_API.baseUrl) || href.startsWith('/')) &&
+                (href.includes(RRT_API.baseUrl) || href.startsWith('/')) &&
                 '_blank' !== event.target.getAttribute('target').toLowerCase()
             ) {
                 event.preventDefault();
-                href = href.replace(RT_API.baseUrl, '');
+                href = href.replace(RRT_API.baseUrl, '');
                 this.props.history.push(href);
             }
         }
