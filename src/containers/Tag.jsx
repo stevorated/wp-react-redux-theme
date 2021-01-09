@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import { connect, dispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { Footer, Header, Main } from '../components';
 import { fetchPostsFromTax, getTaxIdFromSlug, ROUTER } from '../store/actions';
-
-import Header from '../components/Header';
-import Main from '../components/Main';
-import Footer from '../components/Footer';
 
 class Category extends Component {
     componentWillMount = () => {

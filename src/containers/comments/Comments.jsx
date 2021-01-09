@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchComments } from '../../store/actions';
-
-import { Comment } from '../../components';
 import CommentForm from './CommentForm';
+import { Comment } from '../../components';
+import { fetchComments } from '../../store/actions';
 
 class Comments extends Component {
     componentWillMount = () => {

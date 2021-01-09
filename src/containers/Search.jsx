@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { searchSite, ROUTER } from '../store/actions';
-
-import Header from '../components/Header';
-import Main from '../components/Main';
-import Footer from '../components/Footer';
+import { Footer, Header, Main } from '../components';
+import { ROUTER, searchSite } from '../store/actions';
 
 class Search extends Component {
     componentWillMount = () => {

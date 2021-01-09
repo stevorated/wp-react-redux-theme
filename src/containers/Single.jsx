@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchPost } from '../store/actions/index';
-
-import Header from '../components/Header';
-import Main from '../components/Main';
-import Footer from '../components/Footer';
+import { fetchPost } from '../store/actions';
+import { Header, Main, Footer } from '../components';
 
 class Single extends Component {
     componentWillMount = () => {
