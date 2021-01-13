@@ -9,13 +9,14 @@ export class Title extends Component {
         return link.replace(`${url.protocol}//${url.host}`, '');
     };
 
-    getClasses = () => (this.props.isSingle ? '' : 'card-title');
+    getClasses = () => (this.props.isSingle ? '' : 'card-title mb-0');
 
     render() {
         return (
             <header className={this.getClasses()}>
                 <Link to={this.extractPath(this.props.link)}>
-                    <h1
+                    <h2
+                        className={'mt-3'}
                         dangerouslySetInnerHTML={{
                             __html: this.props.children,
                         }}

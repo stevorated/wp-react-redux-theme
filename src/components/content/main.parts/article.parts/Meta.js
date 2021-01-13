@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { FaBeer } from 'react-icons/fa';
+import { MetaCat } from './meta.parts';
 
 export class Meta extends Component {
     renderCategories() {
-        if ('undefined' !== typeof this.props.categories) {
+        if (typeof this.props.categories !== 'undefined') {
             return this.props.categories.map((cat, i) => {
                 if (
                     this.props.categories.length === 1 ||
@@ -11,6 +13,7 @@ export class Meta extends Component {
                 ) {
                     return (
                         <span key={cat.term_id}>
+                            <FaBeer />
                             <Link
                                 to={this.getCategoryPath(cat.link)}
                                 className="cat-links"
@@ -51,10 +54,15 @@ export class Meta extends Component {
     render() {
         return (
             <div className="meta">
-                <div className="cats">
-                    {this.renderCategories()}
-                    {this.renderDates()}
-                </div>
+                <MetaCat
+                    categories={this.props.categories}
+                    date={this.props.date}
+                    formattedDate={this.props.formatted_date}
+                    type={this.props.type}
+                    isSingle={this.props.isSingle}
+                />
+                {/*{this.renderCategories()}*/}
+                {this.renderDates()}
             </div>
         );
     }

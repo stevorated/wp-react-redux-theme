@@ -7,7 +7,7 @@
                 <div class="clearfix copy">&copy; <?php echo date( 'Y' ); ?>
                     <?php bloginfo( 'name' ); ?>
                     &nbsp;|&nbsp;Proudly Powered by&nbsp;
-                    <a href="https://wordpress.org/">WordPress</a>&nbsp;&amp;&nbsp;<a href="https://github.com/stevorated/stevorated-rrt-theme">A React+Redux WordPress theme</a>
+                    <a href="https://wordpress.org/">WordPress</a>&nbsp;&amp;&nbsp;<a href="https://github.com/stevorated/stevorated-rrt">A React+Redux WordPress theme</a>
                 </div>
             </footer>
 

@@ -18,6 +18,12 @@ import { AppRouter } from './routes';
 
 import './sass/styles.scss';
 
+const { __, isRTL } = wp.i18n;
+
+console.log(RRT_API);
+
+__('isWorking', RRT_API.textDomain);
+
 const siteBaseUrl = RRT_API.baseUrl
     .replace(['http://', 'https://'], '')
     .replace(window.location.origin.replace(['http://', 'https://'], ''), '');
@@ -33,6 +39,8 @@ const store = createStore(
         )
     )
 );
+
+console.log(__('Home'));
 
 ReactDom.render(
     <Provider store={store}>

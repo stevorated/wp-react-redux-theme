@@ -44,7 +44,7 @@ if (!class_exists('Menus_Endpoint')) :
          */
         public static function get_api_namespace()
         {
-            return Theme_Helpers::get_api_namespace();
+            return Theme_Helpers::get_api_route();
         }
 
 
@@ -54,9 +54,9 @@ if (!class_exists('Menus_Endpoint')) :
          * @return string
          * @since 1.2.1
          */
-        public static function get_plugin_namespace()
+        public static function get_theme_namespace()
         {
-            return Theme_Helpers::get_plugin_namespace();
+            return Theme_Helpers::get_theme_namespace();
         }
 
 
@@ -68,14 +68,14 @@ if (!class_exists('Menus_Endpoint')) :
         public function register_routes()
         {
 
-            register_rest_route(self::get_plugin_namespace(), '/menus', array(
+            register_rest_route(self::get_theme_namespace(), '/menus', array(
                 array(
                     'methods' => WP_REST_Server::READABLE,
                     'callback' => array($this, 'get_menus'),
                 )
             ));
 
-            register_rest_route(self::get_plugin_namespace(), '/menus/(?P<id>\d+)', array(
+            register_rest_route(self::get_theme_namespace(), '/menus/(?P<id>\d+)', array(
                 array(
                     'methods' => WP_REST_Server::READABLE,
                     'callback' => array($this, 'get_menu'),
@@ -87,14 +87,14 @@ if (!class_exists('Menus_Endpoint')) :
                 )
             ));
 
-            register_rest_route(self::get_plugin_namespace(), '/menu-locations', array(
+            register_rest_route(self::get_theme_namespace(), '/menu-locations', array(
                 array(
                     'methods' => WP_REST_Server::READABLE,
                     'callback' => array($this, 'get_menu_locations'),
                 )
             ));
 
-            register_rest_route(self::get_plugin_namespace(), '/menu-locations/(?P<location>[a-zA-Z0-9_-]+)', array(
+            register_rest_route(self::get_theme_namespace(), '/menu-locations/(?P<location>[a-zA-Z0-9_-]+)', array(
                 array(
                     'methods' => WP_REST_Server::READABLE,
                     'callback' => array($this, 'get_menu_location'),
@@ -112,7 +112,7 @@ if (!class_exists('Menus_Endpoint')) :
         public static function get_menus()
         {
 
-            $rest_url = trailingslashit(get_rest_url() . self::get_plugin_namespace() . '/menus/');
+            $rest_url = trailingslashit(get_rest_url() . self::get_theme_namespace() . '/menus/');
             $wp_menus = wp_get_nav_menus();
 
             $i = 0;
@@ -317,7 +317,7 @@ if (!class_exists('Menus_Endpoint')) :
                     'ID' => abs($item->ID),
                     'order' => (int)$item->menu_order,
                     'parent' => abs($item->menu_item_parent),
-                    'title' => $item->title,
+                    'title' => __($item->title, Theme_Helpers::get_textdomain()),
                     'url' => $item->url,
                     'attr' => $item->attr_title,
                     'target' => $item->target,

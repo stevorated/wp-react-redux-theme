@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Content, CommentForm } from '../../../containers';
+import { Content, CommentForm } from '../../../../containers';
 
 export class Comment extends Component {
     constructor() {

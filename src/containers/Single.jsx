@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { fetchPost } from '../store/actions';
-import { Header, Main, Footer } from '../components';
+import { TopBar, Main, Footer } from '../components';
 
 class Single extends Component {
     componentWillMount = () => {
@@ -21,7 +21,7 @@ class Single extends Component {
 
     render = () => (
         <section className="container-fluid template-single">
-            <Header />
+            <TopBar />
             <Main />
             <Footer />
         </section>

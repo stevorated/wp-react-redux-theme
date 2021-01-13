@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import { Article, Empty } from './main.parts';
-import { Pagination } from '../containers';
+import { Pagination } from '../../containers';
 
 class Main extends Component {
     componentWillUpdate = () => {
@@ -24,7 +24,7 @@ class Main extends Component {
                 );
             });
         } else {
-            const counter = [...Array(20)];
+            const counter = [...Array(4)];
 
             return counter.map((val, i) => {
                 return <Empty key={i} />;
@@ -34,19 +34,23 @@ class Main extends Component {
 
     getClasses = (location = false) => {
         if (!location) {
-            return this.isSingle() ? '' : 'card-columns';
+            return this.isSingle() ? '' : 'container';
         }
     };
 
     render = () => (
-        <div>
-            <main id="postsContainer" className={this.getClasses()}>
+        <div className={'container'}>
+            <main id="content" className={this.getClasses()}>
                 <ReactCSSTransitionGroup
                     transitionName="fade"
                     transitionEnterTimeout={500}
                     transitionLeaveTimeout={1}
                 >
-                    {this.renderPosts(this.props.posts)}
+                    <div className={'row'}>
+                        <div className={'col-9 mx-2'}>
+                            {this.renderPosts(this.props.posts)}
+                        </div>
+                    </div>
                 </ReactCSSTransitionGroup>
             </main>
             <Pagination

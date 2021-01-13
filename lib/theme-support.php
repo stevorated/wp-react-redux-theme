@@ -37,21 +37,19 @@ if (!class_exists('Theme_Support')) :
             return $classes;
         }
 
-        function bootstrap_menu_link_classes($atts, $item, $args)
+        function bootstrap_menu_link_classes($attrs, $item, $args)
         {
-            $atts['class'] = 'nav-link';
+            $attrs['class'] = 'nav-link';
 
 
-            return $atts;
+            return $attrs;
         }
 
         function alt_search_form()
         {
-            $form = '<form role="search" method="get" id="searchform" class="form-inline my-2 my-lg-0" action="' . home_url('/') . '" >
+            return '<form role="search" method="get" id="searchform" class="form-inline my-2 my-lg-0" action="' . home_url('/') . '" >
                         <input type="text" value="' . get_search_query() . '" name="s" class="form-control mr-sm-2" placeholder="Search for..." />
     				</form>';
-
-            return $form;
         }
 
         private function remove_junk()
@@ -88,20 +86,21 @@ if (!class_exists('Theme_Support')) :
 
         public function theme_copyright_customizer($wp_customize)
         {
+            $footerTextSection = 'copyright_extras_section';
             //adding section in wordpress customizer
-            $wp_customize->add_section('copyright_extras_section', array(
-                'title' => __('Copyright Section', 'react_redux_theme'),
+            $wp_customize->add_section($footerTextSection, array(
+                'title' => __('Copyright Section', Theme_Helpers::get_textdomain()),
                 'priority' => 10000,
             ));
 
             //adding setting for copyright text
             $wp_customize->add_setting('text_setting', array(
-                'default' => __('Default copyright Section', 'react_redux_theme'),
+                'default' => __('Default copyright Section', Theme_Helpers::get_textdomain()),
             ));
 
             $wp_customize->add_control('text_setting', array(
-                'label' => __('Copyright text', 'react_redux_theme'),
-                'section' => 'copyright_extras_section',
+                'label' => __('Copyright text', Theme_Helpers::get_textdomain()),
+                'section' => $footerTextSection,
                 'type' => 'text',
             ));
         }

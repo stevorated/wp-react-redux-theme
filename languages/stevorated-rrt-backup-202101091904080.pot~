@@ -1,0 +1,37 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: React Redux Theme\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-09 18:58+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.0; wp-5.6\n"
+"X-Domain: stevorated-rrt"
+
+#: lib/theme-support.php:17
+msgid "Home"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://github.com/stevorated/"
+msgstr ""
+
+#. Name of the theme
+msgid "React Redux Theme"
+msgstr ""
+
+#. Description of the theme
+msgid "ReactJS + Redux themeeeee"
+msgstr ""
+
+#. Author of the theme
+msgid "Stevorated"
+msgstr ""

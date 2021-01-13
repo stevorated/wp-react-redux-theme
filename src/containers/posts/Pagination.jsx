@@ -10,9 +10,9 @@ class Pagination extends Component {
 
     getSlug = () => {
         if (
-            ('undefined' !== typeof this.props.routerMatch.params.slug ||
-                'undefined' !== typeof this.props.routerMatch.params.term) &&
-            'undefined' !== typeof this.props.routerMatch.url
+            (typeof this.props.routerMatch.params.slug !== 'undefined' ||
+                typeof this.props.routerMatch.params.term !== 'undefined') &&
+            typeof this.props.routerMatch.url !== 'undefined'
         ) {
             let tax = 'category';
             let urlParts = this.props.routerMatch.url.split('/');

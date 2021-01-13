@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchMenu } from '../../store/actions';
 
-const { __, isRTL } = wp.i18n;
-
-console.log('here', wp.i18n);
+const { __ } = wp.i18n;
 
 class Menu extends Component {
     componentDidMount = () => {
-        this.props.actions.fetchMenu(this.props.name);
+        if (!this.props.name) {
+            return;
+        } else {
+            this.props.actions.fetchMenu(this.props.name);
+        }
     };
 
     shouldComponentUpdate = nextProps =>
@@ -25,7 +27,9 @@ class Menu extends Component {
                             className="nav-link"
                             to={Menu.getRelativeUrl(item.url)}
                         >
-                            {__(item.title, 'stevorated-rrt-theme')}
+                            {/*{__(item.title, RRT_API.textDomain')}*/}
+                            {item.title}
+                            {/*{__('Home')}*/}
                         </Link>
                     </li>
                 );
@@ -44,10 +48,10 @@ class Menu extends Component {
     getClasses = (location = '') => {
         switch (location) {
             case 'main_menu':
-                if (isRTL()) {
-                    return 'navbar-nav ml-auto';
+                if (RRT_API.is_rtl) {
+                    return 'navbar-nav mr-auto';
                 }
-                return 'navbar-nav mr-auto';
+                return 'navbar-nav justify-content-end';
             case 'footer_menu':
                 return 'nav justify-content-center';
             default:
@@ -58,7 +62,10 @@ class Menu extends Component {
     render = () => {
         // console.log(isRTL());
         return (
-            <ul className={this.getClasses(this.props.menu.name)}>
+            <ul
+                className={this.getClasses(this.props.menu.name)}
+                style={{ minWidth: '85%' }}
+            >
                 {this.renderMenu(this.props.menu)}
             </ul>
         );

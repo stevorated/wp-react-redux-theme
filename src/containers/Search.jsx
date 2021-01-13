@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Footer, Header, Main } from '../components';
+import { Footer, TopBar, Main } from '../components';
 import { ROUTER, searchSite } from '../store/actions';
 
 class Search extends Component {
@@ -31,7 +31,7 @@ class Search extends Component {
     render() {
         return (
             <section className="container-fluid template-search">
-                <Header
+                <TopBar
                     searchTerm={this.props.match.params.term}
                     isSearch={true}
                 />

@@ -15,7 +15,7 @@ if (!class_exists('Pretty_Permalinks_Endpoint')) :
         function init()
         {
             add_action('rest_api_init', function () {
-                register_rest_route(Theme_Helpers::get_plugin_namespace(), '/prettyPermalink/(?P<url>.*?)', array(
+                register_rest_route(Theme_Helpers::get_theme_namespace(), '/prettyPermalink/(?P<url>.*?)', array(
                     'methods' => 'GET',
                     'callback' => [$this, 'get_post_for_url'],
                 ));
@@ -32,7 +32,7 @@ if (!class_exists('Pretty_Permalinks_Endpoint')) :
             $post_id = url_to_postid($data['url']);
             $post_type = get_post_type($post_id);
             $controller = new WP_REST_Posts_Controller($post_type);
-            $apiPath = Theme_Helpers::get_api_namespace();
+            $apiPath = Theme_Helpers::get_api_route();
             $request = new WP_REST_Request('GET', "$apiPath{$post_type}s/$post_id");
             $request->set_url_params(array('id' => $post_id));
 

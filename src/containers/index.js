@@ -5,5 +5,5 @@ import Single from './Single';
 import Tag from './Tag';
 
 export * from './comments';
-export * from './parts';
+export * from './posts';
 export { Blog, Category, Search, Single, Tag };

@@ -4,9 +4,9 @@ import { bindActionCreators } from 'redux';
 
 import { fetchPosts, ROUTER } from '../store/actions/index';
 
-import Header from '../components/Header';
-import Main from '../components/Main';
-import Footer from '../components/Footer';
+import TopBar from '../components/top/TopBar';
+import Main from '../components/content/Main';
+import Footer from '../components/bottom/Footer';
 
 class Blog extends Component {
     componentWillMount = () => {
@@ -37,7 +37,7 @@ class Blog extends Component {
 
     render = () => (
         <section className="container-fluid template-blog">
-            <Header />
+            <TopBar />
             <Main firstPage={this.props.match.params.pageNum === 1} />
             <Footer />
         </section>

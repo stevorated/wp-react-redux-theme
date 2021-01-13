@@ -24,9 +24,14 @@ export const fetchPosts = (
 ) => dispatch => {
     axios
         .get(
-            `${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=${postsPerPage}`
+            `${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=${postsPerPage}&orderby=date`
         )
         .then(response => {
+            console.log(
+                'response',
+                `${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=${postsPerPage}`,
+                response
+            );
             dispatch({
                 type: FETCH_POSTS,
                 payload: response.data,
@@ -90,6 +95,7 @@ export const fetchTaxInfo = (tax, tagIds) => dispatch => {
 
 export const fetchMenu = menu => dispatch => {
     axios.get(`${MENU_ENDPOINT}${menu}`).then(response => {
+        console.log(MENU_ENDPOINT + menu, response);
         dispatch({
             type: FETCH_MENU,
             payload: { items: response.data, name: menu },
