@@ -23,8 +23,7 @@ if (!class_exists('Theme_Enqueue')) :
 
         function theme()
         {
-            error_log('ya alla');
-            wp_enqueue_style('bootstrap4-css', get_template_directory_uri() . '/bootstrap4.min.css', [], '4b');
+            wp_enqueue_style('bootstrap4-css', get_template_directory_uri() . '/node_modules/bootstrap/dist/css/bootstrap.min.css', [], '4b');
             wp_enqueue_script('ReactTheme-js', get_template_directory_uri() . '/build/bundle.js', ['jquery', 'wp-i18n'], $this->version, true);
             wp_set_script_translations( 'ReactTheme-js', Theme_Helpers::get_textdomain(), dirname(plugin_basename(__FILE__)) . '/languages/');
             wp_localize_script('ReactTheme-js', 'RRT_API', array(

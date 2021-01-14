@@ -22,5 +22,3 @@ export const TopBar = props => {
         </header>
     );
 };
-
-export default TopBar;

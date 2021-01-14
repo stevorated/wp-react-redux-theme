@@ -1,12 +1,16 @@
+const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    devtool: 'source-map',
-    entry: './src/index.jsx',
-    output: {
-        path: __dirname + '/build',
-        filename: 'bundle.js',
+    // devtool: 'source-map',
+    devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './build',
+        hot: true,
     },
+    entry: './src/index.jsx',
     module: {
         rules: [
             {
@@ -17,6 +21,11 @@ module.exports = {
                     presets: ['env', 'stage-2', 'react', 'minify', 'es2015'],
                     plugins: ['transform-class-properties'],
                 },
+            },
+            {
+                test: /\.css$/,
+                loader: 'css-loader',
+                options: { sourceMap: true },
             },
             {
                 test: /\.scss$/,
@@ -51,6 +60,14 @@ module.exports = {
         extensions: ['.js', '.jsx'],
     },
     plugins: [
+        new CleanWebpackPlugin(),
+        // new HtmlWebpackPlugin({
+        //     title: 'Hot Module Replacement',
+        // }),
         new ExtractTextPlugin({ filename: 'bundle.css', allChunks: true }),
     ],
+    output: {
+        path: path.resolve(__dirname, 'build'),
+        filename: 'bundle.js',
+    },
 };

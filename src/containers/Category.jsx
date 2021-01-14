@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Footer, TopBar, Main } from '../components';
+import { Footer, TopBar, Posts } from '../components';
 import { fetchPostsFromTax, getTaxIdFromSlug, ROUTER } from '../store/actions';
 
 class Category extends Component {
@@ -50,7 +50,7 @@ class Category extends Component {
     render = () => (
         <section className="container-fluid template-category">
             <TopBar />
-            <Main />
+            <Posts />
             <Footer />
         </section>
     );

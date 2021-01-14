@@ -1,0 +1,48 @@
+@import "comments";
+.rrt-card-image {
+  background-position: center;
+  object-fit: cover;
+  maxHeight: 400px;
+}
+
+.card {
+  &.archive {
+    h2 {
+      letter-spacing: -1px;
+      font-weight: 300;
+      font-size: 26px;
+      line-height: 31.2px;
+    }
+  }
+
+  &.single {
+    margin: 1em auto;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .card-block {
+    padding: 1rem;
+  }
+
+  &.empty {
+    height: 30rem;
+  }
+}
+
+.cat-links, .cat-icon {
+  font-size: 0.8rem;
+}
+
+.post_next_to_box {
+    display: block;
+    width: 55px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    height: 55px;
+}
+

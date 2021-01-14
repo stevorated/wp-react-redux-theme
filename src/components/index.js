@@ -1,7 +1,7 @@
 import { Footer } from './bottom/Footer';
 import { TopBar } from './top/TopBar';
-import Main from './content/Main';
+import Posts from './content/Posts';
 import Search from './top/Search';
 
-export { Comment } from './content/main.parts';
-export { TopBar, Footer, Main, Search };
+export { Comment } from './content/post.parts';
+export { TopBar, Footer, Posts, Search };

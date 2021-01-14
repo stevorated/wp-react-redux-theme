@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Footer, TopBar, Main } from '../components';
+import { Footer, TopBar, Posts } from '../components';
 import { ROUTER, searchSite } from '../store/actions';
 
 class Search extends Component {
@@ -35,7 +35,7 @@ class Search extends Component {
                     searchTerm={this.props.match.params.term}
                     isSearch={true}
                 />
-                <Main />
+                <Posts />
                 <Footer />
             </section>
         );

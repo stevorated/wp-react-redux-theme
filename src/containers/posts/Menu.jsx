@@ -8,6 +8,7 @@ const { __ } = wp.i18n;
 
 class Menu extends Component {
     componentDidMount = () => {
+        console.log(this.props);
         if (!this.props.name) {
             return;
         } else {
@@ -15,8 +16,9 @@ class Menu extends Component {
         }
     };
 
-    shouldComponentUpdate = nextProps =>
-        this.props.name === nextProps.menu.name;
+    shouldComponentUpdate = nextProps => {
+        return this.props.name === nextProps.menu.name;
+    };
 
     renderMenu = menu => {
         if (this.props.name === menu.name) {
@@ -27,9 +29,7 @@ class Menu extends Component {
                             className="nav-link"
                             to={Menu.getRelativeUrl(item.url)}
                         >
-                            {/*{__(item.title, RRT_API.textDomain')}*/}
                             {item.title}
-                            {/*{__('Home')}*/}
                         </Link>
                     </li>
                 );
@@ -60,7 +60,6 @@ class Menu extends Component {
     };
 
     render = () => {
-        // console.log(isRTL());
         return (
             <ul
                 className={this.getClasses(this.props.menu.name)}

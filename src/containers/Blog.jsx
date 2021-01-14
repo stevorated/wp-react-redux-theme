@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { fetchPosts, ROUTER } from '../store/actions/index';
-
-import TopBar from '../components/top/TopBar';
-import Main from '../components/content/Main';
-import Footer from '../components/bottom/Footer';
+import { fetchPosts, ROUTER } from '../store/actions';
+import { Footer, Posts, TopBar } from '../components';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Blog extends Component {
     componentWillMount = () => {
@@ -38,7 +36,13 @@ class Blog extends Component {
     render = () => (
         <section className="container-fluid template-blog">
             <TopBar />
-            <Main firstPage={this.props.match.params.pageNum === 1} />
+            <ReactCSSTransitionGroup
+                transitionName="fade"
+                transitionEnterTimeout={2000}
+                transitionLeaveTimeout={1000}
+            >
+                <Posts firstPage={this.props.match.params.pageNum === 1} />
+            </ReactCSSTransitionGroup>
             <Footer />
         </section>
     );

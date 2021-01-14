@@ -42,11 +42,11 @@ class Pagination extends Component {
     };
 
     render = () => {
-        if (this.props.shouldRender) {
+        if (this.props.shouldRendern && this.props.routerMatch.params) {
             return (
                 <div className="nav justify-content-center">
                     <div className="nav-item">
-                        {1 < this.props.routerMatch.params.pageNum ? (
+                        {this.props.routerMatch.params.pageNum > 1 ? (
                             <Link
                                 to={this.getPrevPage()}
                                 className="nav-link btn btn-primary"

@@ -19,3 +19,31 @@
   margin: 0;
   overflow-x: hidden;
 }
+
+
+.card {
+  border: none!important;
+}
+
+.card-body {
+  padding: 0.25rem!important;
+}
+a  {
+  text-decoration: none;
+  transition: all .1s linear;
+  color: rgb(27,29,33)!important;
+}
+
+a:hover, .rrt_dark_link {
+  text-decoration: none!important;
+  opacity: 0.6!important;
+  //background-color: #555;
+}
+
+a:active, .rrt_dark_link  {
+  background-color: black;
+}
+
+a:visited, .rrt_dark_link  {
+  background-color: #ccc;
+}

@@ -1,1 +1,0 @@
-export { MetaCat } from './MetaCat';

@@ -11,3 +11,7 @@ Text Domain: react-redux-theme
 .stevorated-rrt-rtl {
     direction: rtl;
 }
+
+.w-85 {
+    min-width: 85%!important;
+}

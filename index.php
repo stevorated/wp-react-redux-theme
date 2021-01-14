@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<main id="postsContainer" class="<?php Theme_Helpers::get_class( 'card-columns', '' ); ?>">
+<main id="content" class="<?php Theme_Helpers::get_class( '', '' ); ?>" style="min-height: 100vh">
     <div id="rendered-php">
 		<?php if ( have_posts() ) : ?>
 			<?php while ( have_posts() ) : the_post(); ?>
