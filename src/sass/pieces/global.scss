@@ -17,9 +17,12 @@
 .container-fluid{
   padding: 0;
   margin: 0;
-  overflow-x: hidden;
 }
 
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
 
 .card {
   border: none!important;
@@ -28,6 +31,7 @@
 .card-body {
   padding: 0.25rem!important;
 }
+
 a  {
   text-decoration: none;
   transition: all .1s linear;
@@ -46,4 +50,10 @@ a:active, .rrt_dark_link  {
 
 a:visited, .rrt_dark_link  {
   background-color: #ccc;
+}
+
+._loading_overlay_content {
+  //position: absolute;
+  top: 100px!important;
+  margin-top: 100px;
 }

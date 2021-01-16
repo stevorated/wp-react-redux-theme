@@ -4,30 +4,26 @@ import { FaBeer } from 'react-icons/fa';
 import { MetaCat, MetaDate } from './meta.parts';
 
 export const Meta = props => {
-    const renderDates = () => {
-        if (props.type === 'post' && props.isSingle) {
-            return (
-                <span>
-                    {' '}
-                    |{' '}
-                    <time dateTime={props.date.substring(0, 10)}>
-                        {props.formattedDate}
-                    </time>
-                </span>
-            );
-        }
-    };
-
     return (
-        <div className="meta">
-            <MetaCat
-                categories={props.categories}
-                date={props.date}
-                formattedDate={props.formatted_date}
-                type={props.type}
-                isSingle={props.isSingle}
-            />
-            {props.isSingle && <MetaDate props={props} />}
+        <div className="meta d-inline-flex w-100">
+            <div className="mr-2">
+                <MetaDate
+                    date={props.date}
+                    formattedDate={props.formattedDate}
+                    props={props}
+                    link={props.link}
+                />
+            </div>
+            <div className="mr-2">
+                <MetaCat
+                    link={props.link}
+                    categories={props.categories}
+                    date={props.date}
+                    formattedDate={props.formattedDate}
+                    type={props.type}
+                    isSingle={props.isSingle}
+                />
+            </div>
         </div>
     );
 };

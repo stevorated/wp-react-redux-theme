@@ -12,16 +12,15 @@ export class MetaCat extends Component {
                 ) {
                     return (
                         <span key={cat.term_id}>
-                            <FaFolder className={'mr-1 cat-icon'} />
                             <Link
                                 to={this.getCategoryPath(cat.link)}
-                                className="cat-links"
+                                className="meta-links"
                             >
                                 {cat.name}
                             </Link>
                             {1 < this.props.categories.length &&
                             i < this.props.categories.length - 1
-                                ? '/ '
+                                ? ' / '
                                 : ''}
                         </span>
                     );
@@ -39,6 +38,7 @@ export class MetaCat extends Component {
     render() {
         return (
             <div className="cats">
+                <FaFolder className={'mr-1 meta-icon'} />
                 {this.renderCategories()}
                 {/*{this.renderDates()}*/}
             </div>

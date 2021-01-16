@@ -6,7 +6,7 @@ import { Footer, TopBar, Posts } from '../components';
 import { fetchPostsFromTax, getTaxIdFromSlug, ROUTER } from '../store/actions';
 
 class Category extends Component {
-    componentWillMount = () => {
+    componentDidMount = () => {
         this.props.getTaxIdFromSlug('tags', this.props.match.params.slug);
         this.props.dispatch({
             type: ROUTER,

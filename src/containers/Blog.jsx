@@ -2,18 +2,27 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { Container, Spinner } from 'reactstrap';
 import { fetchPosts, ROUTER } from '../store/actions';
-import { Footer, Posts, TopBar } from '../components';
+import { Footer, Posts, TopBar, Loader } from '../components';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Blog extends Component {
-    componentWillMount = () => {
-        this.props.fetchPosts(this.props.match.params.pageNum || 1);
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: true,
+        };
+        this.props.fetchPosts(this.props.match.params.pageNum || 1).then(() => {
+            this.setState({
+                loading: false,
+            });
+        });
         this.props.dispatch({
             type: ROUTER,
             payload: this.props.match,
         });
-    };
+    }
 
     componentWillReceiveProps = nextProps => {
         if (
@@ -34,17 +43,30 @@ class Blog extends Component {
     };
 
     render = () => (
-        <section className="container-fluid template-blog">
+        <Container
+            fluid={true}
+            className="template-blog"
+            style={{
+                position: 'relative',
+                minHeight: '1000px!important',
+                paddingBottom: '100px',
+            }}
+        >
             <TopBar />
             <ReactCSSTransitionGroup
                 transitionName="fade"
-                transitionEnterTimeout={2000}
-                transitionLeaveTimeout={1000}
+                transitionEnterTimeout={500}
+                transitionLeaveTimeout={500}
             >
                 <Posts firstPage={this.props.match.params.pageNum === 1} />
+                {this.state.loading ? (
+                    <Loader loading={this.state.loading} />
+                ) : (
+                    <Container style={{ minHeight: '1000px;' }} />
+                )}
             </ReactCSSTransitionGroup>
             <Footer />
-        </section>
+        </Container>
     );
 }
 

@@ -9,10 +9,11 @@ export class Footer extends Component {
     };
 
     render = () => (
-        <footer>
+        <footer class="rrt_footer">
             <Menu name="footer_menu" />
             <div className="clearfix copy">
-                &copy; {this.getYear()} {RRT_API.siteName} | Powered by:{' '}
+                &copy; {this.getYear()} {RRT_API.siteName} | Created by:
+                {'Stevorated '}
                 <a href="https://github.com/stevorated/stevorated-rrt">
                     A React+Redux WordPress theme!
                 </a>

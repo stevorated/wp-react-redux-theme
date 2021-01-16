@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchMenu } from '../../store/actions';
-
+import { Nav, NavItem } from 'reactstrap';
 const { __ } = wp.i18n;
 
 class Menu extends Component {
@@ -20,20 +20,22 @@ class Menu extends Component {
         return this.props.name === nextProps.menu.name;
     };
 
-    renderMenu = menu => {
-        if (this.props.name === menu.name) {
-            return menu.items.map(item => {
-                return (
-                    <li key={item.ID} className="nav-item">
-                        <Link
-                            className="nav-link"
-                            to={Menu.getRelativeUrl(item.url)}
-                        >
-                            {item.title}
-                        </Link>
-                    </li>
-                );
-            });
+    isNavbar = () => {
+        switch (location) {
+            case 'footer_menu':
+                return false;
+            default:
+                return true;
+        }
+    };
+
+    getClasses = (location = '') => {
+        const baseClass = 'justify-content-end';
+        switch (location) {
+            case 'footer_menu':
+                return 'justify-content-center';
+            default:
+                return baseClass + '';
         }
     };
 
@@ -45,28 +47,32 @@ class Menu extends Component {
         return url.substr(window.location.origin.length);
     };
 
-    getClasses = (location = '') => {
-        switch (location) {
-            case 'main_menu':
-                if (RRT_API.is_rtl) {
-                    return 'navbar-nav mr-auto';
-                }
-                return 'navbar-nav justify-content-end';
-            case 'footer_menu':
-                return 'nav justify-content-center';
-            default:
-                return '';
+    renderMenu = menu => {
+        if (this.props.name === menu.name) {
+            return menu.items.map(item => {
+                return (
+                    <NavItem key={item.ID}>
+                        <Link
+                            className="nav-link"
+                            to={Menu.getRelativeUrl(item.url)}
+                        >
+                            {item.title}
+                        </Link>
+                    </NavItem>
+                );
+            });
         }
     };
 
     render = () => {
         return (
-            <ul
+            <Nav
+                navbar={this.isNavbar()}
                 className={this.getClasses(this.props.menu.name)}
                 style={{ minWidth: '85%' }}
             >
                 {this.renderMenu(this.props.menu)}
-            </ul>
+            </Nav>
         );
     };
 }

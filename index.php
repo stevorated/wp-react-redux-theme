@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<main id="content" class="<?php Theme_Helpers::get_class( '', '' ); ?>" style="min-height: 100vh">
+<main id="content" class="<?php Theme_Helpers::get_class( '', '' ); ?>">
     <div id="rendered-php">
 		<?php if ( have_posts() ) : ?>
 			<?php while ( have_posts() ) : the_post(); ?>

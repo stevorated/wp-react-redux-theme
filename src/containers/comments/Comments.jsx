@@ -6,7 +6,7 @@ import { Comment } from '../../components';
 import { fetchComments } from '../../store/actions';
 
 class Comments extends Component {
-    componentWillMount = () => {
+    componentDidMount = () => {
         this.props.fetchComments(this.props.pId);
     };
 

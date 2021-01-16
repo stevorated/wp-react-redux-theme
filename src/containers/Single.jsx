@@ -5,7 +5,7 @@ import { fetchPost } from '../store/actions';
 import { TopBar, Posts, Footer } from '../components';
 
 class Single extends Component {
-    componentWillMount = () => {
+    componentDidMount = () => {
         this.props.fetchPost(this.props.location.pathname);
     };
 

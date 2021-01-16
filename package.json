@@ -21,6 +21,7 @@
     "connected-react-router": "^4.3",
     "css-loader": "^0.28",
     "cssnano": "^3.10",
+    "dayjs": "^1.10.3",
     "extract-text-webpack-plugin": "^3.0",
     "history": "^4.6",
     "idempotent-babel-polyfill": "^7.4.4",

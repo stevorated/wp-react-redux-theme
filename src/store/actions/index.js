@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const FETCH_POST = 'FETCH_POST';
+export const FETCH_TOTAL_POSTS = 'FETCH_TOTAL_POSTS';
 export const SEARCH_POSTS = 'SEARCH_POSTS';
 export const CATEGORY_POSTS = 'CATEGORY_POSTS';
 export const FETCH_CAT_INFO = 'FETCH_CAT_INFO';
@@ -21,22 +22,20 @@ export const fetchPosts = (
     pageNum = 1,
     post_type = 'posts',
     postsPerPage = 10
-) => dispatch => {
-    axios
-        .get(
-            `${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=${postsPerPage}&orderby=date`
-        )
-        .then(response => {
-            console.log(
-                'response',
-                `${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=${postsPerPage}`,
-                response
-            );
-            dispatch({
-                type: FETCH_POSTS,
-                payload: response.data,
-            });
-        });
+) => async dispatch => {
+    const res = await axios.get(
+        `${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=${postsPerPage}&orderby=date`
+    );
+
+    dispatch({
+        type: FETCH_POSTS,
+        payload: res.data,
+    });
+
+    dispatch({
+        type: FETCH_TOTAL_POSTS,
+        payload: parseInt(res.headers['x-wp-total']),
+    });
 };
 
 export const fetchPostsFromTax = (

@@ -6,7 +6,7 @@ import { Footer, TopBar, Posts } from '../components';
 import { ROUTER, searchSite } from '../store/actions';
 
 class Search extends Component {
-    componentWillMount = () => {
+    componentDidMount = () => {
         this.props.searchSite(this.props.match.params.term);
         this.props.dispatch({
             type: ROUTER,

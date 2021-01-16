@@ -42,7 +42,7 @@ class Pagination extends Component {
     };
 
     render = () => {
-        if (this.props.shouldRendern && this.props.routerMatch.params) {
+        if (this.props.shouldRender && this.props.routerMatch.params) {
             return (
                 <div className="nav justify-content-center">
                     <div className="nav-item">

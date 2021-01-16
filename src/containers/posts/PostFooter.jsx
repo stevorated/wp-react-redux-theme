@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { fetchTaxInfo } from '../../store/actions';
-
 import { Comments } from '../comments';
 
 class PostFooter extends Component {
-    componentWillMount = () => {
+    componentDidMount = () => {
         if (
-            'undefined' !== typeof this.props.tagIds &&
+            typeof this.props.tagIds !== 'undefined' &&
             this.props.tagIds.length &&
             this.props.isSingle
         ) {

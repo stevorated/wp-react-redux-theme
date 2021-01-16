@@ -34,6 +34,7 @@ class Article extends Component {
 
     render = () => {
         const post = this.props.post;
+
         return (
             <div>
                 <Card className={this.getClasses()}>
@@ -52,6 +53,7 @@ class Article extends Component {
                             {post.title.rendered}
                         </Title>
                         <Meta
+                            link={post.link}
                             categories={this.getCategories(post.categories)}
                             date={post.date}
                             formattedDate={post.formatted_date}

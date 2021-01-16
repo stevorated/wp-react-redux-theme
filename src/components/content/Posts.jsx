@@ -4,7 +4,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import { Pagination } from '../../containers';
 import { Post } from './Post';
-import { Container, Col, Row, Spinner } from 'reactstrap';
+import { Col, Container, Row } from 'reactstrap';
 
 import './styles/post.scss';
 
@@ -14,6 +14,8 @@ class Posts extends Component {
     };
 
     isSingle = () => this.props.posts.length === 1;
+
+    isLastPage = () => {};
 
     renderPosts = posts => {
         if (posts.length) {
@@ -39,7 +41,7 @@ class Posts extends Component {
                     style={{ minHeight: '500px' }}
                     key={i}
                 >
-                    <Spinner color="primary" />
+                    {/*<Spinner color="primary" />*/}
                 </Container>
             );
         });
@@ -57,7 +59,7 @@ class Posts extends Component {
                 fluid={true}
                 id="content"
                 className={this.getClasses()}
-                style={{ minHeight: '100vh' }}
+                style={{ minHeight: '100%' }}
             >
                 <Row>
                     <Col xs={8}>
@@ -74,14 +76,13 @@ class Posts extends Component {
                 </Row>
             </Container>
             <Pagination
-                shouldRender={
-                    10 === this.props.posts.length || !this.props.firstPage
-                }
+                totalPosts={this.props.totalPosts}
+                shouldRender={this.props.totalPosts > this.props.posts}
             />
         </Container>
     );
 }
 
-const mapStateToProps = ({ posts }) => ({ posts });
+const mapStateToProps = ({ posts, totalPosts }) => ({ posts, totalPosts });
 
 export default connect(mapStateToProps)(Posts);

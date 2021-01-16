@@ -1,19 +1,18 @@
 import React from 'react';
-import Spinner from 'reactstrap';
+import { FaClock } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 export const MetaDate = props => {
-    console.log(props);
-    return props.type === 'post' && props.isSingle ? (
-        <span>
-            {' '}
-            |{' '}
-            <time dateTime={props.date.substring(0, 10)}>
-                {props.formattedDate}
-            </time>
-        </span>
-    ) : (
-        <div>
-            <Spinner />
+    return (
+        <div className="cats">
+            <span>
+                <Link to={props.link} className="meta-links">
+                    <FaClock className={'mr-1 meta-icon'} />
+                    <time dateTime={props.date.substring(0, 10)}>
+                        {props.formattedDate}
+                    </time>
+                </Link>
+            </span>
         </div>
     );
 };
